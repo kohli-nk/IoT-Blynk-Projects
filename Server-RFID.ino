@@ -5,9 +5,9 @@
 
 #define SS_PIN 21   // Change to an appropriate GPIO pin
 #define RST_PIN 27 // Change to an appropriate GPIO pin
-const char* ssid = "AndroidAP_1153";           // Replace with your Wi-Fi SSID
-const char* password = "naman123";   // Replace with your Wi-Fi password
-const char* serverUrl = "http://192.168.68.66:8080/open"; // Replace with your server URL
+const char* ssid = "";           // Replace with your Wi-Fi SSID
+const char* password = "";   // Replace with your Wi-Fi password
+const char* serverUrl = "http://"IP":8080/open"; // Replace with your server URL
 
 
 MFRC522 rfid(SS_PIN, RST_PIN);
@@ -43,7 +43,7 @@ void loop() {
   }
 
   content.toUpperCase();
-  if (content.substring(1) == "C3 E7 75 13") { // Button pressed
+  if (content.substring(1) == "TAG") { // Replace with Desired RFID tag ID
     Serial.println("ID read:");
     HTTPClient http;
     http.begin(serverUrl);
